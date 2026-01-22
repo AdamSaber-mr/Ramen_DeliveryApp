@@ -5,8 +5,8 @@
   <!-- Achtergrond -->
   <div class="absolute inset-0">
     <img src="assets/images/global/ramen_header.jpeg"
-         alt="Yume Ramen restaurant"
-         class="h-full w-full object-cover">
+      alt="Yume Ramen restaurant"
+      class="h-full w-full object-cover">
     <div class="absolute inset-0 bg-black/50"></div>
   </div>
 
@@ -33,7 +33,7 @@
 
     <!-- CTA -->
     <a href="menu.php"
-       class="mt-6 inline-block rounded-full bg-red-500 px-6 py-2 text-sm font-semibold text-white hover:bg-red-600 transition">
+      class="mt-6 inline-block rounded-full bg-red-500 px-6 py-2 text-sm font-semibold text-white hover:bg-red-600 transition">
       Bekijk menu
     </a>
   </div>

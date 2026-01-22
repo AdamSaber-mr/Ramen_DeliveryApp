@@ -1,9 +1,22 @@
-<!-- bg-[#5a1f2b] -->
+<!DOCTYPE html>
+<html lang="en">
 
-<script src="https://cdn.tailwindcss.com"></script>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./output.css" rel="stylesheet">
+    <title>Homepage</title>
+</head>
 
-<?php
-include './includes/navbar.php';
-include './includes/header.php';
-?>
+<body>
 
+    <?php
+    include './includes/navbar.php';
+    include './includes/header.php';
+    ?>
+
+
+
+</body>
+
+</html>
