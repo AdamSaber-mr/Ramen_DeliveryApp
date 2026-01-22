@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./output.css" rel="stylesheet">
+    <title>Homepage</title>
+</head>
+
+<body>
+    <header class="sticky top-0 z-50 bg-[#5a1f2b]">
+        <nav class="flex items-center justify-between px-4 py-3">
+
+            <!-- Logo -->
+            <div class="flex items-center gap-2 text-white font-semibold">
+            <span class="text-lg">🍜</span>
+            <span class="text-sm">Yume Ramen</span>
+            </div>
+
+            <!-- Acties -->
+            <div class="flex items-center gap-3">
+
+            <!-- Login / Register -->
+            <a href="login.php"
+                class="flex items-center gap-1 rounded-full bg-[#7a2a3a] px-3 py-1.5 text-xs text-white hover:bg-[#8f3246] transition">
+                👤
+                <span>Login</span>
+            </a>
+
+            <!-- Winkelwagen -->
+            <a href="cart.php"
+                class="flex items-center gap-1 rounded-full bg-[#e11d48] px-3 py-1.5 text-xs text-white hover:bg-[#be123c] transition">
+                🛒
+                <span>Winkelwagen</span>
+            </a>
+
+            </div>
+        </nav>
+    </header>
+
+    <section class="relative">
+        <!-- Achtergrond -->
+        <div class="absolute inset-0">
+            <img src="assets/images/global/ramen_header.jpeg"
+            alt="Yume Ramen restaurant"
+            class="h-full w-full object-cover">
+            <div class="absolute inset-0 bg-black/50"></div>
+        </div>
+
+        <!-- Content -->
+        <div class="relative px-4 py-16 text-white">
+            <h1 class="text-3xl font-bold leading-tight">
+            Van <span class="text-red-400">verlangen</span><br>
+            tot <span class="text-red-400">meesterwerk</span>
+            </h1>
+
+            <p class="mt-4 text-sm text-gray-200 max-w-xs">
+            Authentieke Japanse ramen, met passie bereid en bij je thuis bezorgd.
+            </p>
+
+            <!-- Info badges -->
+            <div class="mt-5 flex gap-3 text-xs">
+            <div class="flex items-center gap-1 rounded-full bg-white/10 px-3 py-1">
+                ⏱ 30–45 min
+            </div>
+            <div class="flex items-center gap-1 rounded-full bg-white/10 px-3 py-1">
+                ⭐ 4.8 / 5
+            </div>
+            </div>
+
+            <!-- CTA -->
+            <a href="menu.php"
+            class="mt-6 inline-block rounded-full bg-red-500 px-6 py-2 text-sm font-semibold text-white hover:bg-red-600 transition">
+            Bekijk menu
+            </a>
+        </div>
+    </section>
+</body>
+
+</html>
