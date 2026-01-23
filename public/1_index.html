@@ -4,18 +4,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="./output.css" rel="stylesheet">
+    <link href="../src/output.css" rel="stylesheet">
     <title>Homepage</title>
 </head>
 
 <body>
     <header class="sticky top-0 z-50 bg-[#5a1f2b]">
         <nav class="flex items-center justify-between px-4 py-3">
-
             <!-- Logo -->
             <div class="flex items-center gap-2 text-white font-semibold">
-            <span class="text-lg">🍜</span>
-            <span class="text-sm">Yume Ramen</span>
+            <img src="assets/images/global/logo.png"
+                 alt="Yume Ramen restaurant"
+                 class="w-10">
+            <div class="flex items-center flex-col">
+                <span class="text-sm">Yume Ramen</span>
+                <p class="text-[#c8c067] font-light text-xs">夢ラーメン</p>
+            </div>
             </div>
 
             <!-- Acties -->
@@ -50,6 +54,7 @@
 
         <!-- Content -->
         <div class="relative px-4 py-16 text-white">
+            <h2 class="mb-6"> <span class="text-[#c8c067]">夢</span> YUME RAMEN </h2>
             <h1 class="text-3xl font-bold leading-tight">
             Van <span class="text-red-400">verlangen</span><br>
             tot <span class="text-red-400">meesterwerk</span>
