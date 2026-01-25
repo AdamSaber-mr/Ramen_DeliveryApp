@@ -384,3 +384,79 @@
 .deals__track::-webkit-scrollbar {
   display: none;
 }
+
+/* === FOOTER === */
+/* === FOOTER === */
+/* === FOOTER === */
+
+.app-footer {
+  background-color: #5a1f2b; /* diep Japans rood */
+  color: #fdf2f4;
+  padding: 2rem 1.2rem 1.5rem;
+  margin-top: 2rem;
+}
+
+/* Brand */
+.footer-brand {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.footer-logo {
+  font-size: 2rem;
+}
+
+.footer-brand h3 {
+  font-size: 1.2rem;
+  margin: 0.3rem 0;
+  font-weight: 600;
+}
+
+.footer-brand p {
+  font-size: 0.8rem;
+  opacity: 0.85;
+  line-height: 1.4;
+}
+
+/* Links */
+.footer-links {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.footer-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.footer-group h4 {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.4rem;
+  opacity: 0.8;
+}
+
+.footer-group a {
+  font-size: 0.75rem;
+  color: #fdf2f4;
+  text-decoration: none;
+  opacity: 0.9;
+}
+
+/* Bottom */
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.15);
+  padding-top: 1rem;
+  text-align: center;
+  font-size: 0.7rem;
+  opacity: 0.8;
+}
+
+.footer-bottom span {
+  display: block;
+  margin-top: 0.3rem;
+}
