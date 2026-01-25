@@ -1,0 +1,104 @@
+/* === MENU HEADER === */
+
+.menu-header {
+  background: linear-gradient(135deg, #8b1e2d, #e11d48);
+  color: #fff;
+  padding: 2rem 1.2rem 2.2rem;
+}
+
+.menu-back {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.85);
+  text-decoration: none;
+}
+
+.menu-header h1 {
+  font-size: 1.8rem;
+  margin: 0.6rem 0 0.4rem;
+}
+
+.menu-header p {
+  font-size: 0.9rem;
+  opacity: 0.95;
+  max-width: 320px;
+}
+
+.menu-count {
+  display: inline-block;
+  margin-top: 0.6rem;
+  font-size: 0.75rem;
+  opacity: 0.85;
+}
+
+/* === MENU GRID === */
+
+.menu-grid {
+  padding: 1.5rem 1rem 2.5rem;
+  background-color: #fdecef;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.2rem;
+}
+
+/* Card */
+.menu-card {
+  background: #fff;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+/* Image */
+.menu-card img {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Body */
+.menu-card__body {
+  padding: 0.9rem 1rem 1.1rem;
+}
+
+/* Badge */
+.menu-badge {
+  display: inline-block;
+  font-size: 0.65rem;
+  padding: 0.2rem 0.55rem;
+  border-radius: 10px;
+  background-color: #f59e0b;
+  color: #fff;
+  margin-bottom: 0.4rem;
+}
+
+/* Text */
+.menu-card h3 {
+  font-size: 1.05rem;
+  margin: 0.2rem 0;
+}
+
+.menu-card p {
+  font-size: 0.8rem;
+  color: #555;
+  margin-bottom: 0.9rem;
+}
+
+/* Footer */
+.menu-card__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.price {
+  font-weight: 600;
+  color: #5a1f2b;
+}
+
+.view-btn {
+  font-size: 0.75rem;
+  color: #e11d48;
+  text-decoration: none;
+}

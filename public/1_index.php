@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="../src/output.css" rel="stylesheet">
   <link rel="stylesheet" href="./assets/css/homepage.css">
+  <link rel="stylesheet" href="./assets/css/footer.css">
   <title>Homepage</title>
 </head>
 
@@ -151,7 +152,7 @@
         traditionele Japanse recepten.
       </p>
 
-      <a href="menu.html" class="story-banner__button">
+      <a href="2_menu.php" class="story-banner__button">
         Ontdek het menu
       </a>
     </div>

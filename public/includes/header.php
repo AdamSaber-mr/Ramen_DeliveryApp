@@ -30,7 +30,7 @@
         </div>
 
         <!-- CTA -->
-        <a href="menu.php"
+        <a href="2_menu.php"
           class="mt-6 inline-block rounded-full bg-red-500 px-6 py-2 text-sm font-semibold text-white hover:bg-red-600 transition">
           Bekijk menu
         </a>
