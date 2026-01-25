@@ -1,0 +1,177 @@
+/* === CATEGORIE SECTIE === */
+/* === CATEGORIE SECTIE === */
+/* === CATEGORIE SECTIE === */
+
+.categories {
+  padding: 1.5rem 1rem;
+  background-color: #fdf2f4; /* zacht roze */
+}
+
+.categories__title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #5a1f2b;
+  margin-bottom: 1rem;
+}
+
+/* Scroll container */
+.categories__track {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding-bottom: 0.5rem;
+}
+
+/* Card */
+.category-card {
+  flex: 0 0 80%;
+  border-radius: 16px;
+  overflow: hidden;
+  background-color: #000;
+  position: relative;
+}
+
+/* Image */
+.category-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Content overlay */
+.category-card__content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0.75rem 1rem;
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.65),
+    rgba(0,0,0,0)
+  );
+  color: #fff;
+}
+
+.category-card__content h3 {
+  font-size: 1.3rem;
+  margin: 0;
+}
+
+.category-card__content p {
+  font-size: 0.85rem;
+  margin: 0.25rem 0 0;
+  opacity: 0.9;
+}
+
+/* Scrollbar verbergen (optioneel) */
+.categories__track::-webkit-scrollbar {
+  display: none;
+}
+
+/* === POPULAIR NU === */
+/* === POPULAIR NU === */
+/* === POPULAIR NU === */
+
+.popular {
+  padding: 2rem 1rem;
+  background-color: #fdecef; /* lichter dan categorieën */
+}
+
+.popular__header {
+  margin-bottom: 1rem;
+}
+
+.popular__header h2 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #5a1f2b;
+}
+
+.popular__header span {
+  font-size: 0.85rem;
+  color: #8f3a4a;
+}
+
+/* Scroll track */
+.popular__track {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding-bottom: 0.5rem;
+}
+
+/* Card */
+.popular-card {
+  flex: 0 0 70%;
+  background: #fff;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+/* Image */
+.popular-card img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Body */
+.popular-card__body {
+  padding: 0.75rem 0.9rem 1rem;
+}
+
+/* Badge */
+.popular-badge {
+  display: inline-block;
+  font-size: 0.65rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 10px;
+  background-color: #e11d48;
+  color: #fff;
+  margin-bottom: 0.4rem;
+}
+
+/* Text */
+.popular-card__body h3 {
+  font-size: 1rem;
+  margin: 0.2rem 0;
+}
+
+.popular-card__body p {
+  font-size: 0.8rem;
+  color: #555;
+  margin-bottom: 0.7rem;
+}
+
+/* Footer */
+.popular-card__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.price {
+  font-weight: 600;
+  color: #5a1f2b;
+}
+
+.popular-card__footer button {
+  background-color: #e11d48;
+  color: #fff;
+  border: none;
+  padding: 0.35rem 0.8rem;
+  font-size: 0.75rem;
+  border-radius: 14px;
+  cursor: pointer;
+}
+
+/* Scrollbar weg */
+.popular__track::-webkit-scrollbar {
+  display: none;
+}
