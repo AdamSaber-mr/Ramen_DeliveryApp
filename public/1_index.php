@@ -96,18 +96,20 @@
     <div class="popular__track">
 
       <article class="popular-card">
-        <img src="assets/images/ramen/classic_shoyu_ramen.jpeg" alt="Classic Shoyu Ramen">
+        <a href="./4_product.php">
+          <img src="assets/images/ramen/classic_shoyu_ramen.jpeg" alt="Classic Shoyu Ramen">
 
-        <div class="popular-card__body">
-          <span class="popular-badge">Populair</span>
-          <h3>Classic Shoyu Ramen</h3>
-          <p>Traditionele sojasaus bouillon</p>
+          <div class="popular-card__body">
+            <span class="popular-badge">Populair</span>
+            <h3>Classic Shoyu Ramen</h3>
+            <p>Traditionele sojasaus bouillon</p>
 
-          <div class="popular-card__footer">
-            <span class="price">€13,50</span>
-            <button>Bestel</button>
+            <div class="popular-card__footer">
+              <span class="price">€13,50</span>
+              <button>Bestel</button>
+            </div>
           </div>
-        </div>
+        </a>
       </article>
 
       <article class="popular-card">

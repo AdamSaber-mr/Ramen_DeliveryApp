@@ -1,0 +1,134 @@
+/* === PRODUCT DETAIL === */
+
+.product {
+  padding: 1.5rem 1rem 2.5rem;
+  background-color: #fdecef;
+}
+
+.product-back {
+  display: inline-block;
+  margin-bottom: 0.8rem;
+  font-size: 0.8rem;
+  color: #5a1f2b;
+  text-decoration: none;
+}
+
+/* Image */
+.product-image {
+  position: relative;
+  border-radius: 18px 18px 0px 0px;
+  overflow: hidden;
+}
+
+.product-image img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+}
+
+.product-price {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  background: #fff;
+  color: #e11d48;
+  padding: 0.3rem 0.7rem;
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+/* Content */
+.product-content {
+  background: #fff;
+  border-radius: 18px;
+  padding: 1.2rem 1.1rem 1.4rem;
+  margin-top: -1.5rem;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+}
+
+.product-content h1 {
+  font-size: 1.4rem;
+  margin-bottom: 0.7rem;
+  margin-top: 1rem;
+}
+
+/* Meta */
+.product-meta {
+  display: flex;
+  gap: 0.6rem;
+  margin-bottom: 1rem;
+}
+
+.badge {
+  font-size: 0.7rem;
+  background: #fde68a;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+}
+
+.time {
+  font-size: 0.75rem;
+  color: #666;
+}
+
+/* Description */
+.product-description {
+  font-size: 0.85rem;
+  color: #555;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+}
+
+/* Chef note */
+.chef-note {
+  background: #fdf2f4;
+  border-left: 4px solid #e11d48;
+  padding: 0.6rem 0.8rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.8rem;
+}
+
+/* Quantity */
+.quantity {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.qty-btn {
+  background: #fdf2f4;
+  border: none;
+  padding: 0.4rem 0.9rem;
+  font-size: 1.2rem;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+#quantity {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+/* Total */
+.total {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #5a1f2b;
+}
+
+/* Add to cart */
+.add-to-cart {
+  width: 100%;
+  background: #e11d48;
+  color: #fff;
+  border: none;
+  padding: 0.8rem;
+  border-radius: 16px;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
