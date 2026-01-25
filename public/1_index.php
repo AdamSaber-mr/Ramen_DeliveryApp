@@ -23,11 +23,13 @@
     <div class="categories__track">
 
       <article class="category-card">
-        <img src="assets/images/categories/miso_ramen.jpeg" alt="Miso ramen">
-        <div class="category-card__content">
-          <h3>Miso</h3>
-          <p>Rijke & volle bouillon</p>
-        </div>
+        <a href="./3_category.php">
+          <img src="assets/images/categories/miso_ramen.jpeg" alt="Miso ramen">
+          <div class="category-card__content">
+            <h3>Miso</h3>
+            <p>Rijke & volle bouillon</p>
+          </div>
+        </a>
       </article>
 
       <article class="category-card">
