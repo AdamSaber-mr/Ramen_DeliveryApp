@@ -4,7 +4,10 @@
 
 .categories {
   padding: 1.5rem 1rem;
-  background-color: #fdf2f4; /* zacht roze */
+  background-color: #ffe8ee; /* zacht roze  #fdf2f4*/
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .categories__title {
@@ -66,6 +69,10 @@
   opacity: 0.9;
 }
 
+.homepage_scrol_tip {
+  font-weight: 100;
+}
+
 /* Scrollbar verbergen (optioneel) */
 .categories__track::-webkit-scrollbar {
   display: none;
@@ -77,7 +84,7 @@
 
 .popular {
   padding: 2rem 1rem;
-  background-color: #fdecef; /* lichter dan categorieën */
+  background-color: #ffd1dc; /* lichter dan categorieën #fdecef */
 }
 
 .popular__header {
@@ -93,6 +100,15 @@
 .popular__header span {
   font-size: 0.85rem;
   color: #8f3a4a;
+}
+
+.popular__header_text {
+  display: flex;
+}
+
+#chart_popular {
+  width: 40px;
+  margin-right: 5px;
 }
 
 /* Scroll track */
@@ -174,4 +190,78 @@
 /* Scrollbar weg */
 .popular__track::-webkit-scrollbar {
   display: none;
+}
+
+/* === STORY / TUSSENBANNER === */
+/* === STORY / TUSSENBANNER === */
+/* === STORY / TUSSENBANNER === */
+
+.story-banner {
+  position: relative;
+  margin: 2rem 1rem;
+  border-radius: 20px;
+  overflow: hidden;
+  min-height: 220px;
+
+  /* ACHTERGROND AFBEELDING */
+  background-image: url("../images/banner/banner.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+/* Donkere overlay */
+.story-banner__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.55),
+    rgba(0,0,0,0.35)
+  );
+}
+
+/* Content */
+.story-banner__content {
+  position: relative;
+  z-index: 2;
+  padding: 3rem;
+  color: #fff;
+  max-width: 330px;
+}
+
+/* Label */
+.story-banner__label {
+  display: inline-block;
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+  opacity: 0.9;
+  color: #c8c067;
+}
+
+/* Titel */
+.story-banner__content h2 {
+  font-size: 1.6rem;
+  line-height: 1.2;
+  margin: 0.3rem 0 1.5rem;
+}
+
+/* Tekst */
+.story-banner__content p {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  opacity: 0.95;
+}
+
+/* Button */
+.story-banner__button {
+  display: inline-block;
+  margin-top: 0.9rem;
+  padding: 0.45rem 1rem;
+  background-color: #e11d48;
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.75rem;
+  border-radius: 999px;
 }
