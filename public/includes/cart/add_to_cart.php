@@ -32,5 +32,5 @@ $_SESSION['flash'] = [
 ];
 
 // Redirect
-header('Location: ../2_menu.php');
+header('Location: ../../2_menu.php');
 exit;

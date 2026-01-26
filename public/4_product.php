@@ -13,13 +13,14 @@
 
 <body>
     <?php
+    session_start();
     include 'includes/navbar.php';
-    include './includes/cart.php';
+    include './includes/cart/cart.php';
     ?>
 
     <section class="product">
 
-        <a href="1_index.php" class="product-back">← Terug naar alle home</a>
+        <a href="1_index.php" class="product-back">← Terug naar home</a>
 
         <!-- Afbeelding -->
         <div class="product-image">
@@ -66,7 +67,7 @@
             </div>
 
             <!-- Add to cart -->
-            <form action="./includes/add_to_cart.php" method="POST">
+            <form action="./includes/cart/add_to_cart.php" method="POST">
                 <input type="hidden" name="id" value="1">
 
                 <button type="submit" class="add-to-cart">

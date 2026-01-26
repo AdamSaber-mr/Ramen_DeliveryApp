@@ -24,7 +24,7 @@ $subtotal = 0;
                         €<?= number_format($item['price'] * $item['quantity'], 2) ?>
                     </span>
 
-                    <form action="includes/remove_from_cart.php" method="POST">
+                    <form action="includes/cart/remove_from_cart.php" method="POST">
                         <input type="hidden" name="index" value="<?= $index ?>">
                         <button type="submit" class="remove-btn">✕</button>
                     </form>
@@ -51,7 +51,7 @@ $subtotal = 0;
                     <span>€<?= number_format($subtotal + 2.5, 2) ?></span>
                 </div>
 
-                <a href="checkout.php" class="checkout-btn">
+                <a href="5_checkout.php" class="checkout-btn">
                     Bestelling afronden
                 </a>
             </div>

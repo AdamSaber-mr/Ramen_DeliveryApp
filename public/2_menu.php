@@ -16,7 +16,7 @@
     <?php
     session_start();
     include 'includes/navbar.php';
-    include './includes/cart.php';
+    include './includes/cart/cart.php';
     ?>
 
     <?php if (isset($_SESSION['flash'])):

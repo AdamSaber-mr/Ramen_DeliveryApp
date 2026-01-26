@@ -1,0 +1,87 @@
+/* === CHECKOUT === */
+
+.checkout {
+  padding: 2rem 1rem 3rem;
+  background-color: #fdecef;
+}
+
+.product-back {
+  display: inline-block;
+  margin-bottom: 0.8rem;
+  font-size: 0.8rem;
+  color: #5a1f2b;
+  text-decoration: none;
+}
+
+.checkout h1 {
+  font-size: 1.6rem;
+  color: #5a1f2b;
+  margin-bottom: 0.3rem;
+}
+
+.checkout-intro {
+  font-size: 0.85rem;
+  color: #555;
+  margin-bottom: 1.5rem;
+}
+
+/* Form */
+.checkout-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Sections */
+.checkout-section {
+  background: #fff;
+  border-radius: 18px;
+  padding: 1.2rem 1rem;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+.checkout-section h2 {
+  font-size: 1rem;
+  margin-bottom: 0.8rem;
+  color: #5a1f2b;
+}
+
+/* Fields */
+.checkout-form input {
+  width: 100%;
+  padding: 0.7rem;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  font-size: 0.85rem;
+  margin-bottom: 0.7rem;
+}
+
+.field-group {
+  display: flex;
+  gap: 0.6rem;
+}
+
+/* Summary */
+.summary-row,
+.summary-total {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.4rem;
+}
+
+.summary-total {
+  font-weight: 600;
+  color: #5a1f2b;
+  margin-top: 0.6rem;
+}
+
+/* Button */
+.checkout-btn {
+  background: #e11d48;
+  color: #fff;
+  border: none;
+  padding: 0.9rem;
+  border-radius: 18px;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
