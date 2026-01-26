@@ -6,12 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="../src/output.css" rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/menu_cate/categorie.css">
+    <link rel="stylesheet" href="./assets/css/cart/cart.css">
     <link rel="stylesheet" href="./assets/css/footer.css">
     <title>Categorieën pagina</title>
 </head>
 
 <body>
-    <?php include 'includes/navbar.php'; ?>
+    <?php
+    include 'includes/navbar.php';
+    include './includes/cart.php';
+    ?>
 
     <section class="menu-header category-header">
         <a href="1_index.php" class="menu-back">← Terug naar home</a>
@@ -61,6 +65,8 @@
     </section>
 
     <?php include 'includes/footer.php'; ?>
+
+    <script src="./assets/js/cart.js"></script>
 
 </body>
 

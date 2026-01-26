@@ -22,11 +22,13 @@
           </a>
 
           <!-- Winkelwagen -->
-          <a href="cart.php"
-            class="flex items-center gap-1 rounded-full bg-[#e11d48] px-3 py-1.5 text-xs text-white hover:bg-[#be123c] transition">
-            🛒
-            <span>Winkelwagen</span>
-          </a>
+          <button onclick="openCart()" class="cart-btn">
+            <a
+              class="flex items-center gap-1 rounded-full bg-[#e11d48] px-3 py-1.5 text-xs text-white hover:bg-[#be123c] transition">
+              🛒
+              <span>Winkelwagen</span>
+            </a>
+          </button>
 
         </div>
       </nav>

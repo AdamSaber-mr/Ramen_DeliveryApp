@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="../src/output.css" rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/menu_cate/menupage.css">
+    <link rel="stylesheet" href="./assets/css/cart/cart.css">
     <link rel="stylesheet" href="./assets/css/footer.css">
     <title>Menu-pagina</title>
 </head>
@@ -15,6 +16,7 @@
     <?php
     session_start();
     include 'includes/navbar.php';
+    include './includes/cart.php';
     ?>
 
     <?php if (isset($_SESSION['flash'])):
@@ -94,6 +96,7 @@
     <?php include 'includes/footer.php'; ?>
 
     <script src="./assets/js/animations.js"></script>
+    <script src="./assets/js/cart.js"></script>
 
 </body>
 

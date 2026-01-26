@@ -6,12 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="../src/output.css" rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/detail/product.css">
+    <link rel="stylesheet" href="./assets/css/cart/cart.css">
     <link rel="stylesheet" href="./assets/css/footer.css">
     <title>Product detail pagina</title>
 </head>
 
 <body>
-    <?php include 'includes/navbar.php'; ?>
+    <?php
+    include 'includes/navbar.php';
+    include './includes/cart.php';
+    ?>
 
     <section class="product">
 
@@ -78,6 +82,8 @@
     <script src="./assets/js/product.js"></script>
 
     <?php include 'includes/footer.php'; ?>
+
+    <script src="./assets/js/cart.js"></script>
 
 </body>
 
