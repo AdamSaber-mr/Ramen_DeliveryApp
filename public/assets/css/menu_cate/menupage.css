@@ -102,3 +102,23 @@
   color: #e11d48;
   text-decoration: none;
 }
+
+/* === FLASH MESSAGE === */
+/* === FLASH MESSAGE === */
+/* === FLASH MESSAGE === */
+
+.flash {
+  margin: 1rem auto;
+  padding: 0.7rem 1rem;
+  width: calc(100% - 2rem);
+  max-width: 400px;
+  border-radius: 14px;
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+.flash--success {
+  background-color: #ecfdf5;
+  color: #065f46;
+  border: 1px solid #a7f3d0;
+}

@@ -62,9 +62,14 @@
             </div>
 
             <!-- Add to cart -->
-            <button class="add-to-cart">
-                🛒 Toevoegen aan winkelwagen
-            </button>
+            <form action="./includes/add_to_cart.php" method="POST">
+                <input type="hidden" name="id" value="1">
+
+                <button type="submit" class="add-to-cart">
+                    🛒 Toevoegen aan winkelwagen
+                </button>
+            </form>
+
 
         </div>
 

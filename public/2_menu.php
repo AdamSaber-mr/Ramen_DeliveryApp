@@ -12,7 +12,19 @@
 
 <body>
 
-    <?php include 'includes/navbar.php'; ?>
+    <?php
+    session_start();
+    include 'includes/navbar.php';
+    ?>
+
+    <?php if (isset($_SESSION['flash'])):
+        $flash = $_SESSION['flash'];
+        unset($_SESSION['flash']);
+    ?>
+        <div class="flash flash--<?= $flash['type'] ?>">
+            <?= htmlspecialchars($flash['message']) ?>
+        </div>
+    <?php endif; ?>
 
     <section class="menu-header">
         <a href="1_index.php" class="menu-back">← Terug naar home</a>
@@ -81,6 +93,7 @@
 
     <?php include 'includes/footer.php'; ?>
 
+    <script src="./assets/js/animations.js"></script>
 
 </body>
 
