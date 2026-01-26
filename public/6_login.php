@@ -45,7 +45,7 @@ unset($_SESSION['login_error']);
                 </div>
             <?php endif; ?>
 
-            <form method="POST" action="login_handler.php">
+            <form method="POST" action="6_login_handler.php">
 
                 <input
                     type="email"

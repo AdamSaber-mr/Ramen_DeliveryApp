@@ -19,6 +19,15 @@
   include './includes/cart/cart.php';
   ?>
 
+  <?php if (isset($_SESSION['flash'])):
+      $flash = $_SESSION['flash'];
+      unset($_SESSION['flash']);
+      ?>
+      <div class="flash flash--<?= $flash['type'] ?>">
+          <?= htmlspecialchars($flash['message']) ?>
+      </div>
+  <?php endif; ?>
+
   <section class="relative">
     <!-- Achtergrond -->
     <div class="absolute inset-0">
@@ -274,6 +283,7 @@
 
   <script src="./assets/js/swipe_hint.js"></script>
   <script src="./assets/js/cart.js"></script>
+  <script src="./assets/js/animations.js"></script>
 
 </body>
 
