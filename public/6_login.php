@@ -1,10 +1,22 @@
 <?php
 session_start();
+?>
 
+<?php if (isset($_SESSION['flash'])):
+    $flash = $_SESSION['flash'];
+    unset($_SESSION['flash']);
+?>
+  <div class="flash flash--<?= $flash['type'] ?>">
+    <?= htmlspecialchars($flash['message']) ?>
+  </div>
+<?php endif; ?>
+
+<?php
 // (later: echte foutmelding)
 $error = $_SESSION['login_error'] ?? null;
 unset($_SESSION['login_error']);
 ?>
+
 <!DOCTYPE html>
 <html lang="nl">
 
@@ -61,6 +73,8 @@ unset($_SESSION['login_error']);
         </div>
 
     </section>
+
+<script src="./assets/js/animations.js"></script>
 
 </body>
 

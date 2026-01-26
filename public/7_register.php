@@ -34,7 +34,7 @@ unset($_SESSION['register_error']);
                 </div>
             <?php endif; ?>
 
-            <form method="POST" action="register_handler.php">
+            <form method="POST" action="7_register_handler.php">
 
                 <div class="field-group">
                     <input
