@@ -1,3 +1,49 @@
+<?php
+session_start();
+
+// Login verplicht
+if (!isset($_SESSION['user_id'])) {
+    $_SESSION['flash'] = [
+        'type' => 'error',
+        'message' => 'Log in of registreer om je bestelling af te ronden.'
+    ];
+    header('Location: 6_login.php');
+    exit;
+}
+
+// Extra check op winkelwagen
+if (empty($_SESSION['cart'])) {
+    $_SESSION['flash'] = [
+            'type' => 'error',
+            'message' => 'Je winkelmand is leeg.'
+    ];
+    header('Location: 2_menu.php');
+    exit;
+}
+
+
+// DB connectie
+require_once '../app/config/database.php';
+
+$userId = $_SESSION['user_id'];
+
+$stmt = $pdo->prepare("
+    SELECT first_name, last_name, email
+    FROM users
+    WHERE id = ?
+");
+$stmt->execute([$userId]);
+$user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+// Extra veiligheid
+if (!$user) {
+    session_destroy();
+    header('Location: 6_login.php');
+    exit;
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,7 +60,6 @@
 <body>
 
     <?php
-    session_start();
     include 'includes/navbar.php';
     include './includes/cart/cart.php';
     ?>
@@ -35,8 +80,13 @@
                 <h2>Jouw gegevens</h2>
 
                 <div class="field-group">
-                    <input type="text" name="name" placeholder="Volledige naam">
-                    <input type="email" name="email" placeholder="E-mailadres">
+                    <input type="text" name="name"
+                           value="<?= htmlspecialchars($user['first_name'] . ' ' . $user['last_name']) ?>"
+                           required>
+
+                    <input type="email" name="email"
+                           value="<?= htmlspecialchars($user['email']) ?>"
+                           required>
                 </div>
 
                 <input type="text" name="address" placeholder="Straat + huisnummer">
