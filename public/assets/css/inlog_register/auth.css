@@ -1,0 +1,89 @@
+/* === AUTH PAGES === */
+
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background: #fdecef;
+}
+
+.auth {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem;
+}
+
+.product-left {
+  display: flex;
+}
+
+.product-back {
+  display: inline-block;
+  margin-bottom: 0.8rem;
+  font-size: 0.8rem;
+  color: #5a1f2b;
+  text-decoration: none;
+}
+
+.auth-card {
+  background: #fff;
+  width: 100%;
+  max-width: 380px;
+  border-radius: 24px;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  box-shadow: 0 12px 32px rgba(0,0,0,0.12);
+}
+
+.auth-card h1 {
+  font-size: 1.8rem;
+  margin-bottom: 0.2rem;
+}
+
+.auth-sub {
+  font-size: 0.85rem;
+  color: #777;
+  margin-bottom: 1.5rem;
+}
+
+.auth-card input {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 0.9rem;
+  border-radius: 14px;
+  border: 1px solid #ddd;
+  font-size: 0.85rem;
+}
+
+.auth-btn {
+  width: 100%;
+  background: #e11d48;
+  color: #fff;
+  border: none;
+  padding: 0.8rem;
+  border-radius: 18px;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.auth-link {
+  font-size: 0.8rem;
+  margin-top: 1.2rem;
+}
+
+.auth-link a {
+  color: #e11d48;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* Error */
+.auth-error {
+  background: #fff1f2;
+  color: #9f1239;
+  border-radius: 14px;
+  padding: 0.6rem;
+  font-size: 0.8rem;
+  margin-bottom: 1rem;
+}
