@@ -69,7 +69,9 @@
 
             <!-- Actie -->
             <button type="submit" class="checkout-btn">
-                Bestelling plaatsen
+                <a href="./9_thankyou.php">
+                    Bestelling plaatsen
+                </a>
             </button>
 
         </form>
