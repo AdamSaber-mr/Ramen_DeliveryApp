@@ -64,6 +64,15 @@ if (!$user) {
     include './includes/cart/cart.php';
     ?>
 
+    <?php if (isset($_SESSION['flash'])):
+        $flash = $_SESSION['flash'];
+        unset($_SESSION['flash']);
+        ?>
+        <div class="flash flash--<?= $flash['type'] ?>">
+            <?= htmlspecialchars($flash['message']) ?>
+        </div>
+    <?php endif; ?>
+
     <section class="checkout">
 
         <a href="1_index.php" class="product-back">← Terug naar home</a>
@@ -73,7 +82,7 @@ if (!$user) {
             Vul je gegevens in om je bestelling te voltooien.
         </p>
 
-        <form class="checkout-form">
+        <form class="checkout-form" method="POST" action="9_place_order.php">
 
             <!-- Gegevens -->
             <div class="checkout-section">
@@ -89,7 +98,29 @@ if (!$user) {
                            required>
                 </div>
 
-                <input type="text" name="address" placeholder="Straat + huisnummer">
+                <div class="form-row">
+                    <div class="form-group street">
+                        <label for="street">Straat</label>
+                        <input
+                                type="text"
+                                name="street"
+                                id="street"
+                                placeholder="Bijv. Heer Bokkelweg"
+                                required
+                        >
+                    </div>
+
+                    <div class="form-group house-number">
+                        <label for="house_number">Nr.</label>
+                        <input
+                                type="text"
+                                name="house_number"
+                                id="house_number"
+                                placeholder="21"
+                                required
+                        >
+                    </div>
+                </div>
 
                 <div class="field-group">
                     <input type="text" name="zipcode" placeholder="Postcode">
@@ -119,9 +150,7 @@ if (!$user) {
 
             <!-- Actie -->
             <button type="submit" class="checkout-btn">
-                <a href="./9_thankyou.php">
                     Bestelling plaatsen
-                </a>
             </button>
 
         </form>
@@ -130,6 +159,7 @@ if (!$user) {
 
     <?php include 'includes/footer.php'; ?>
 
+    <script src="./assets/js/animations.js"></script>
     <script src="./assets/js/cart.js"></script>
 
 </body>

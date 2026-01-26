@@ -1,103 +1,95 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+session_start();
+require_once '../app/config/database.php';
 
+// Menu items ophalen
+$stmt = $pdo->prepare("
+    SELECT *
+    FROM menu_items
+    WHERE is_available = 1
+");
+$stmt->execute();
+$menuItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+// Aantal gerechten
+$totalItems = count($menuItems);
+?>
+
+<!DOCTYPE html>
+<html lang="nl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link href="../src/output.css" rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/menu_cate/menupage.css">
     <link rel="stylesheet" href="./assets/css/cart/cart.css">
     <link rel="stylesheet" href="./assets/css/footer.css">
-    <title>Menu-pagina</title>
+
+    <title>Menu | Yume Ramen</title>
 </head>
 
 <body>
 
-    <?php
-    session_start();
-    include 'includes/navbar.php';
-    include './includes/cart/cart.php';
+<?php
+include 'includes/navbar.php';
+include './includes/cart/cart.php';
+?>
+
+<?php if (isset($_SESSION['flash'])):
+    $flash = $_SESSION['flash'];
+    unset($_SESSION['flash']);
     ?>
+    <div class="flash flash--<?= htmlspecialchars($flash['type']) ?>">
+        <?= htmlspecialchars($flash['message']) ?>
+    </div>
+<?php endif; ?>
 
-    <?php if (isset($_SESSION['flash'])):
-        $flash = $_SESSION['flash'];
-        unset($_SESSION['flash']);
-    ?>
-        <div class="flash flash--<?= $flash['type'] ?>">
-            <?= htmlspecialchars($flash['message']) ?>
-        </div>
-    <?php endif; ?>
+<section class="menu-header">
+    <a href="1_index.php" class="menu-back">← Terug naar home</a>
 
-    <section class="menu-header">
-        <a href="1_index.php" class="menu-back">← Terug naar home</a>
+    <h1>Alle Ramen</h1>
+    <p>Ontdek ons volledige assortiment authentieke Japanse ramen</p>
 
-        <h1>Alle Ramen</h1>
-        <p>Ontdek ons volledige assortiment authentieke Japanse ramen</p>
+    <span class="menu-count"><?= $totalItems ?> gerechten</span>
+</section>
 
-        <span class="menu-count">10 gerechten</span>
-    </section>
+<section class="menu-grid">
 
-    <section class="menu-grid">
-
-        <!-- CARD -->
+    <?php foreach ($menuItems as $item): ?>
         <article class="menu-card">
-            <img src="assets/images/ramen/classic_shoyu_ramen.jpeg" alt="Classic Shoyu Ramen">
+
+            <img
+                    src="assets/images/ramen/<?= htmlspecialchars($item['image_url']) ?>"
+                    alt="<?= htmlspecialchars($item['name']) ?>"
+            >
 
             <div class="menu-card__body">
-                <span class="menu-badge">Trending</span>
 
-                <h3>Classic Shoyu Ramen</h3>
-                <p>Traditionele sojasaus bouillon met chashu varkensvlees</p>
+                <?php if ($item['price'] >= 16): ?>
+                    <span class="menu-badge">Populair</span>
+                <?php endif; ?>
 
-                <div class="menu-card__footer">
-                    <span class="price">€13,50</span>
-                    <a href="product.php" class="view-btn">Bekijk →</a>
-                </div>
-            </div>
-        </article>
-
-        <article class="menu-card">
-            <img src="assets/images/ramen/classic_shoyu_ramen.jpeg" alt="Classic Shoyu Ramen">
-
-            <div class="menu-card__body">
-                <span class="menu-badge">Trending</span>
-
-                <h3>Classic Shoyu Ramen</h3>
-                <p>Traditionele sojasaus bouillon met chashu varkensvlees</p>
+                <h3><?= htmlspecialchars($item['name']) ?></h3>
+                <p><?= htmlspecialchars($item['description']) ?></p>
 
                 <div class="menu-card__footer">
-                    <span class="price">€13,50</span>
-                    <a href="product.php" class="view-btn">Bekijk →</a>
+                    <span class="price">€<?= number_format($item['price'], 2, ',', '.') ?></span>
+                    <a href="4_product.php?id=<?= $item['id'] ?>" class="view-btn">
+                        Bekijk →
+                    </a>
                 </div>
             </div>
+
         </article>
+    <?php endforeach; ?>
 
-        <article class="menu-card">
-            <img src="assets/images/ramen/classic_shoyu_ramen.jpeg" alt="Classic Shoyu Ramen">
+</section>
 
-            <div class="menu-card__body">
-                <span class="menu-badge">Trending</span>
+<?php include 'includes/footer.php'; ?>
 
-                <h3>Classic Shoyu Ramen</h3>
-                <p>Traditionele sojasaus bouillon met chashu varkensvlees</p>
-
-                <div class="menu-card__footer">
-                    <span class="price">€13,50</span>
-                    <a href="product.php" class="view-btn">Bekijk →</a>
-                </div>
-            </div>
-        </article>
-
-        <!-- Herhaal cards -->
-        <!-- later dynamisch via PHP -->
-
-    </section>
-
-    <?php include 'includes/footer.php'; ?>
-
-    <script src="./assets/js/animations.js"></script>
-    <script src="./assets/js/cart.js"></script>
+<script src="./assets/js/animations.js"></script>
+<script src="./assets/js/cart.js"></script>
 
 </body>
-
 </html>
