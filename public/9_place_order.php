@@ -100,7 +100,7 @@ try {
     $pdo->commit();
 
     // ➡️ Bedankt pagina
-    header('Location: 10_thankyou.php');
+    header('Location: 10_thankyou.php?order_id=' . $orderId);
     exit;
 
 }catch (Exception $e) {
