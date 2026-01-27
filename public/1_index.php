@@ -1,3 +1,19 @@
+<?php
+session_start();
+
+require_once '../app/config/database.php';
+
+// Aanbiedingen ophalen
+$stmt = $pdo->prepare("
+SELECT id, name, description, price, deal_price, image_url
+FROM menu_items
+WHERE is_deal = 1 AND is_available = 1
+");
+$stmt->execute();
+$deals = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,7 +30,6 @@
 <body>
 
   <?php
-  session_start();
   include './includes/navbar.php';
   include './includes/cart/cart.php';
   ?>
@@ -221,69 +236,46 @@
   </section>
 
   <section class="deals">
-    <div class="deals__header">
-      <h2>Aanbiedingen</h2>
-      <span>Tijdelijk extra voordelig</span>
-    </div>
+      <div class="deals__header">
+          <h2>Aanbiedingen</h2>
+          <span>Tijdelijk extra voordelig</span>
+      </div>
 
-    <div class="deals__track">
+      <div class="deals__track">
 
-      <article class="deal-card">
-        <img src="assets/images/ramen/miso_ramen_ag.jpg" alt="Miso Ramen">
+          <?php foreach ($deals as $deal): ?>
+              <article class="deal-card">
+                  <a href="4_product.php?id=<?= $deal['id'] ?>">
+                      <img
+                              src="assets/images/ramen/<?= htmlspecialchars($deal['image_url']) ?>"
+                              alt="<?= htmlspecialchars($deal['name']) ?>"
+                      >
 
-        <div class="deal-card__body">
-          <span class="deal-badge">Aanbieding</span>
-          <h3>Miso Ramen</h3>
-          <p>Rijke miso bouillon met verse toppings</p>
+                      <div class="deal-card__body">
+                          <span class="deal-badge">Aanbieding</span>
 
-          <div class="deal-card__footer">
-            <div class="prices">
-              <span class="old-price">€13,50</span>
-              <span class="new-price">€11,90</span>
-            </div>
-            <button>Bestel</button>
-          </div>
-        </div>
-      </article>
+                          <h3><?= htmlspecialchars($deal['name']) ?></h3>
+                          <p><?= htmlspecialchars($deal['description']) ?></p>
 
-      <article class="deal-card">
-        <img src="assets/images/ramen/shoyu_ramen_ag.webp" alt="Shoyu Ramen">
+                          <div class="deal-card__footer">
+                              <div class="prices">
+                <span class="old-price">
+                  €<?= number_format($deal['price'], 2, ',', '.') ?>
+                </span>
+                                  <span class="new-price">
+                  €<?= number_format($deal['deal_price'], 2, ',', '.') ?>
+                </span>
+                              </div>
+                              <span class="deal-btn">Bekijk</span>
+                          </div>
+                      </div>
+                  </a>
+              </article>
+          <?php endforeach; ?>
 
-        <div class="deal-card__body">
-          <span class="deal-badge">Aanbieding</span>
-          <h3>Shoyu Ramen</h3>
-          <p>Klassieke sojasaus bouillon</p>
-
-          <div class="deal-card__footer">
-            <div class="prices">
-              <span class="old-price">€13,00</span>
-              <span class="new-price">€11,50</span>
-            </div>
-            <button>Bestel</button>
-          </div>
-        </div>
-      </article>
-
-      <article class="deal-card">
-        <img src="assets/images/ramen/vegetarische_ramen_ag.webp" alt="Vegetarische Ramen">
-
-        <div class="deal-card__body">
-          <span class="deal-badge">Aanbieding</span>
-          <h3>Vegetarische Ramen</h3>
-          <p>Lichte groentebouillon met tofu</p>
-
-          <div class="deal-card__footer">
-            <div class="prices">
-              <span class="old-price">€12,50</span>
-              <span class="new-price">€10,90</span>
-            </div>
-            <button>Bestel</button>
-          </div>
-        </div>
-      </article>
-
-    </div>
+      </div>
   </section>
+
 
   <?php
   include './includes/footer.php';

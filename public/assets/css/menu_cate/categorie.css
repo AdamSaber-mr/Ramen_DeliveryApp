@@ -106,3 +106,13 @@
   color: #e11d48;
   text-decoration: none;
 }
+
+.old-price {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+.new-price {
+  color: #C41E3A;
+  font-weight: bold;
+}

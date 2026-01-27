@@ -26,7 +26,7 @@ if (!$category) {
 
 // 2️⃣ Menu items van deze categorie ophalen
 $stmt = $pdo->prepare("
-    SELECT id, name, description, price, image_url
+    SELECT *
     FROM menu_items
     WHERE category_id = ? AND is_available = 1
 ");
@@ -72,13 +72,33 @@ $items = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 >
 
                 <div class="menu-card__body">
+
+                    <?php if ($item['is_deal']): ?>
+                        <span class="menu-badge">Aanbieding</span>
+                    <?php endif; ?>
+
+                    <?php if ($item['price'] >= 16): ?>
+                        <span class="menu-badge">Populair</span>
+                    <?php endif; ?>
+
                     <h3><?= htmlspecialchars($item['name']) ?></h3>
                     <p><?= htmlspecialchars($item['description']) ?></p>
 
                     <div class="menu-card__footer">
-                    <span class="price">
-                        €<?= number_format($item['price'], 2, ',', '.') ?>
-                    </span>
+                        <?php if ($item['is_deal']): ?>
+                            <div class="prices">
+                                <span class="old-price">
+                                    €<?= number_format($item['price'], 2, ',', '.') ?>
+                                </span>
+                                <span class="new-price">
+                                    €<?= number_format($item['deal_price'], 2, ',', '.') ?>
+                                </span>
+                            </div>
+                        <?php else: ?>
+                            <span class="price">
+                                €<?= number_format($item['price'], 2, ',', '.') ?>
+                            </span>
+                        <?php endif; ?>
 
                         <a href="4_product.php?id=<?= $item['id'] ?>" class="view-btn">
                             Bekijk →
