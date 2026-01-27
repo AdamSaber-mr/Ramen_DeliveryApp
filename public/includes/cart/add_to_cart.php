@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once '../../../app/config/database.php';
+global $pdo;
 
 // POST data
 $menuItemId = $_POST['menu_item_id'] ?? null;
@@ -13,7 +14,7 @@ if (!$menuItemId || !is_numeric($menuItemId)) {
 
 // Product ophalen uit DB
 $stmt = $pdo->prepare("
-    SELECT id, name, price
+    SELECT id, name, price, is_deal, deal_price
     FROM menu_items
     WHERE id = ? AND is_available = 1
 ");
@@ -28,6 +29,14 @@ if (!$product) {
     header('Location: ../../2_menu.php');
     exit;
 }
+
+// JUISTE prijs bepalen
+if ($product['is_deal'] && $product['deal_price'] !== null) {
+    $finalPrice = $product['deal_price'];
+} else {
+    $finalPrice = $product['price'];
+}
+
 
 // Cart initialiseren
 if (!isset($_SESSION['cart'])) {
@@ -50,7 +59,7 @@ if (!$found) {
     $_SESSION['cart'][] = [
         'menu_item_id' => $product['id'],
         'name' => $product['name'],
-        'price' => $product['price'],
+        'price' => $finalPrice,
         'quantity' => $quantity
     ];
 }

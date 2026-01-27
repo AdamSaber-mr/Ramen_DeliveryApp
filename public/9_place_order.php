@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once '../app/config/database.php';
+global $pdo;
 
 // 🔒 Check login
 if (!isset($_SESSION['user_id'])) {

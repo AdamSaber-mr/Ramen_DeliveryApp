@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once '../app/config/database.php';
+global $pdo;
 
 // 🔎 Check of id bestaat
 if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
@@ -67,8 +68,14 @@ include './includes/cart/cart.php';
                 src="assets/images/ramen/<?= htmlspecialchars($product['image_url']) ?>"
                 alt="<?= htmlspecialchars($product['name']) ?>"
         >
+
+        <?php
+        $finalPrice = $product['is_deal']
+                ? $product['deal_price']
+                : $product['price'];
+        ?>
         <span class="product-price">
-            €<?= number_format($product['price'], 2, ',', '.') ?>
+                €<?= number_format($finalPrice, 2, ',', '.') ?>
         </span>
     </div>
 
@@ -101,10 +108,18 @@ include './includes/cart/cart.php';
             <!-- Totaal -->
             <div class="total">
                 <span>Totaal</span>
+                <?php
+                $finalPrice = $product['is_deal']
+                        ? $product['deal_price']
+                        : $product['price'];
+                ?>
                 <span id="total-price">
-                    €<?= number_format($product['price'], 2, ',', '.') ?>
-                </span>
+                        €<?= number_format($finalPrice, 2, ',', '.') ?>
+                    </span>
             </div>
+
+            <input type="hidden" name="price" value="<?= $finalPrice ?>">
+
 
             <!-- Add to cart -->
             <button type="submit" class="add-to-cart">

@@ -3,6 +3,7 @@ session_start();
 
 // Database connectie
 require_once '../app/config/database.php';
+global $pdo;
 
 // Form data ophalen
 $firstName = trim($_POST['first_name'] ?? '');

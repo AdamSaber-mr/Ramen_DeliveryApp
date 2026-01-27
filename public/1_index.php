@@ -1,5 +1,6 @@
 <?php
 session_start();
+global $pdo;
 
 require_once '../app/config/database.php';
 

@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once '../app/config/database.php';
+global $pdo;
 
 // Category id ophalen
 $categoryId = $_GET['id'] ?? null;

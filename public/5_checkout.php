@@ -1,5 +1,6 @@
 <?php
 session_start();
+global $pdo;
 
 // Login verplicht
 if (!isset($_SESSION['user_id'])) {
@@ -157,7 +158,6 @@ if (!$user) {
                     <span>€<?= number_format($totalPrice, 2, ',', '.') ?></span>
                 </div>
             </div>
-
 
             <!-- Actie -->
             <button type="submit" class="checkout-btn">
