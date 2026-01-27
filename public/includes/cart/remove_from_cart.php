@@ -5,8 +5,6 @@ $index = $_POST['index'] ?? null;
 
 if ($index !== null && isset($_SESSION['cart'][$index])) {
     unset($_SESSION['cart'][$index]);
-
-    // array opnieuw indexeren
     $_SESSION['cart'] = array_values($_SESSION['cart']);
 }
 
@@ -15,5 +13,5 @@ $_SESSION['flash'] = [
     'message' => 'Item verwijderd uit winkelmand'
 ];
 
-header('Location: ' . $_SERVER['HTTP_REFERER']);
+header('Location: ' . ($_SERVER['HTTP_REFERER'] ?? '../../2_menu.php'));
 exit;

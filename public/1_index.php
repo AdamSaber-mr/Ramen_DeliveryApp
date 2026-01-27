@@ -73,7 +73,7 @@
     <div class="categories__track">
 
       <article class="category-card">
-        <a href="./3_category.php">
+        <a href="./3_category.php?id=2">
           <img src="assets/images/categories/miso_ramen.jpeg" alt="Miso ramen">
           <div class="category-card__content">
             <h3>Miso</h3>
@@ -83,35 +83,43 @@
       </article>
 
       <article class="category-card">
-        <img src="assets/images/categories/shoyu_ramen.jpeg" alt="Shoyu ramen">
-        <div class="category-card__content">
-          <h3>Shoyu</h3>
-          <p>Sojasaus bouillon</p>
-        </div>
+          <a href="./3_category.php?id=1">
+            <img src="assets/images/categories/shoyu_ramen.jpeg" alt="Shoyu ramen">
+            <div class="category-card__content">
+              <h3>Shoyu</h3>
+              <p>Sojasaus bouillon</p>
+            </div>
+          </a>
       </article>
 
       <article class="category-card">
-        <img src="assets/images/categories/tonkotsu_ramen.jpeg" alt="Tonkotsu ramen">
-        <div class="category-card__content">
-          <h3>Tonkotsu</h3>
-          <p>Romig & intens</p>
-        </div>
+          <a href="./3_category.php?id=5">
+            <img src="assets/images/categories/tonkotsu_ramen.jpeg" alt="Tonkotsu ramen">
+            <div class="category-card__content">
+              <h3>Tonkotsu</h3>
+              <p>Romig & intens</p>
+            </div>
+          </a>
       </article>
 
       <article class="category-card">
-        <img src="assets/images/categories/spicy.jpeg" alt="Spicy ramen">
-        <div class="category-card__content">
-          <h3>Spicy 🌶</h3>
-          <p>Pittig & krachtig</p>
-        </div>
+          <a href="./3_category.php?id=3">
+            <img src="assets/images/categories/spicy.jpeg" alt="Spicy ramen">
+            <div class="category-card__content">
+              <h3>Spicy 🌶</h3>
+              <p>Pittig & krachtig</p>
+            </div>
+          </a>
       </article>
 
       <article class="category-card">
-        <img src="assets/images/categories/vegetarisch.jpeg" alt="Vegetarische ramen">
-        <div class="category-card__content">
-          <h3>Vegetarisch 🌱</h3>
-          <p>Licht & puur</p>
-        </div>
+          <a href="./3_category.php?id=4">
+            <img src="assets/images/categories/vegetarisch.jpeg" alt="Vegetarische ramen">
+            <div class="category-card__content">
+              <h3>Vegetarisch 🌱</h3>
+              <p>Licht & puur</p>
+            </div>
+          </a>
       </article>
 
     </div>

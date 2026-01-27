@@ -35,6 +35,16 @@ $stmt = $pdo->prepare("
 $stmt->execute([$userId]);
 $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
+$cart = $_SESSION['cart'];
+$subtotal = 0;
+
+foreach ($cart as $item) {
+    $subtotal += $item['price'] * $item['quantity'];
+}
+
+$deliveryCost = 2.50;
+$totalPrice = $subtotal + $deliveryCost;
+
 // Extra veiligheid
 if (!$user) {
     session_destroy();
@@ -134,19 +144,20 @@ if (!$user) {
 
                 <div class="summary-row">
                     <span>Subtotaal</span>
-                    <span>€32,00</span>
+                    <span>€<?= number_format($subtotal, 2, ',', '.') ?></span>
                 </div>
 
                 <div class="summary-row">
                     <span>Bezorgkosten</span>
-                    <span>€2,50</span>
+                    <span>€<?= number_format($deliveryCost, 2, ',', '.') ?></span>
                 </div>
 
                 <div class="summary-total">
                     <span>Totaal</span>
-                    <span>€34,50</span>
+                    <span>€<?= number_format($totalPrice, 2, ',', '.') ?></span>
                 </div>
             </div>
+
 
             <!-- Actie -->
             <button type="submit" class="checkout-btn">

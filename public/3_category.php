@@ -1,3 +1,39 @@
+<?php
+session_start();
+require_once '../app/config/database.php';
+
+// Category id ophalen
+$categoryId = $_GET['id'] ?? null;
+
+if (!$categoryId || !is_numeric($categoryId)) {
+    header('Location: 1_index.php');
+    exit;
+}
+
+// 1️⃣ Categorie info ophalen
+$stmt = $pdo->prepare("
+    SELECT name, description
+    FROM categories
+    WHERE id = ?
+");
+$stmt->execute([$categoryId]);
+$category = $stmt->fetch(PDO::FETCH_ASSOC);
+
+if (!$category) {
+    header('Location: 1_index.php');
+    exit;
+}
+
+// 2️⃣ Menu items van deze categorie ophalen
+$stmt = $pdo->prepare("
+    SELECT id, name, description, price, image_url
+    FROM menu_items
+    WHERE category_id = ? AND is_available = 1
+");
+$stmt->execute([$categoryId]);
+$items = $stmt->fetchAll(PDO::FETCH_ASSOC);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,7 +49,6 @@
 
 <body>
     <?php
-    session_start();
     include 'includes/navbar.php';
     include './includes/cart/cart.php';
     ?>
@@ -21,49 +56,40 @@
     <section class="menu-header category-header">
         <a href="1_index.php" class="menu-back">← Terug naar home</a>
 
-        <h1>Shoyu</h1>
-        <p>Traditionele sojasaus-bouillon ramen met een rijke umami smaak</p>
+        <h1><?= htmlspecialchars($category['name']) ?></h1>
+        <p><?= htmlspecialchars($category['description']) ?></p>
+        <span class="menu-count"><?= count($items) ?> gerechten</span>
 
-        <span class="menu-count">3 gerechten</span>
     </section>
 
     <section class="menu-grid">
 
-        <!-- CARD -->
-        <article class="menu-card">
-            <img src="assets/images/ramen/classic_shoyu_ramen.jpeg" alt="Classic Shoyu Ramen">
+        <?php foreach ($items as $item): ?>
+            <article class="menu-card">
+                <img
+                        src="./assets/images/ramen/<?= htmlspecialchars($item['image_url']) ?>"
+                        alt="<?= htmlspecialchars($item['name']) ?>"
+                >
 
-            <div class="menu-card__body">
-                <span class="menu-badge">Trending</span>
+                <div class="menu-card__body">
+                    <h3><?= htmlspecialchars($item['name']) ?></h3>
+                    <p><?= htmlspecialchars($item['description']) ?></p>
 
-                <h3>Classic Shoyu Ramen</h3>
-                <p>Sojasaus bouillon met chashu varkensvlees</p>
+                    <div class="menu-card__footer">
+                    <span class="price">
+                        €<?= number_format($item['price'], 2, ',', '.') ?>
+                    </span>
 
-                <div class="menu-card__footer">
-                    <span class="price">€13,50</span>
-                    <a href="product.php" class="view-btn">Bekijk →</a>
+                        <a href="4_product.php?id=<?= $item['id'] ?>" class="view-btn">
+                            Bekijk →
+                        </a>
+                    </div>
                 </div>
-            </div>
-        </article>
+            </article>
+        <?php endforeach; ?>
 
-        <article class="menu-card">
-            <img src="assets/images/ramen/classic_shoyu_ramen.jpeg" alt="Classic Shoyu Ramen">
-
-            <div class="menu-card__body">
-                <span class="menu-badge">Trending</span>
-
-                <h3>Classic Shoyu Ramen</h3>
-                <p>Sojasaus bouillon met chashu varkensvlees</p>
-
-                <div class="menu-card__footer">
-                    <span class="price">€13,50</span>
-                    <a href="product.php" class="view-btn">Bekijk →</a>
-                </div>
-            </div>
-        </article>
-
-        <!-- meer cards -->
     </section>
+
 
     <?php include 'includes/footer.php'; ?>
 

@@ -79,13 +79,9 @@ try {
 
     // 3️⃣ Order items opslaan
     $stmt = $pdo->prepare("
-        INSERT INTO order_items (order_id, menu_item_id, quantity, price_at_time)
-        VALUES (?, ?, ?, ?)
-    ");
-
-    echo '<pre>';
-    print_r($_SESSION['cart']);
-    exit;
+    INSERT INTO order_items (order_id, menu_item_id, quantity, price_at_time)
+    VALUES (?, ?, ?, ?)
+");
 
     foreach ($_SESSION['cart'] as $item) {
         $stmt->execute([

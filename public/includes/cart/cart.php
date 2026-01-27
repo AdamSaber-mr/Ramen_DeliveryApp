@@ -12,16 +12,20 @@ $subtotal = 0;
         </div>
 
         <?php foreach ($cart as $index => $item): ?>
-            <div class="cart-item">
+            <?php
+            $itemTotal = $item['price'] * $item['quantity'];
+            $subtotal += $itemTotal;
+            ?>
 
+            <div class="cart-item">
                 <div class="cart-item-info">
                     <h4><?= htmlspecialchars($item['name']) ?></h4>
-                    <span><?= $item['quantity'] ?> × €<?= number_format($item['price'], 2) ?></span>
+                    <span><?= $item['quantity'] ?> × €<?= number_format($item['price'], 2, ',', '.') ?></span>
                 </div>
 
                 <div class="cart-item-actions">
                     <span class="cart-item-price">
-                        €<?= number_format($item['price'] * $item['quantity'], 2) ?>
+                        €<?= number_format($itemTotal, 2, ',', '.') ?>
                     </span>
 
                     <form action="includes/cart/remove_from_cart.php" method="POST">
@@ -29,16 +33,14 @@ $subtotal = 0;
                         <button type="submit" class="remove-btn">✕</button>
                     </form>
                 </div>
-
             </div>
         <?php endforeach; ?>
-
 
         <?php if (!empty($cart)): ?>
             <div class="cart-summary">
                 <div class="summary-row">
                     <span>Subtotaal</span>
-                    <span>€<?= number_format($subtotal, 2) ?></span>
+                    <span>€<?= number_format($subtotal, 2, ',', '.') ?></span>
                 </div>
 
                 <div class="summary-row">
@@ -48,7 +50,7 @@ $subtotal = 0;
 
                 <div class="summary-total">
                     <span>Totaal</span>
-                    <span>€<?= number_format($subtotal + 2.5, 2) ?></span>
+                    <span>€<?= number_format($subtotal + 2.5, 2, ',', '.') ?></span>
                 </div>
 
                 <a href="5_checkout.php" class="checkout-btn">

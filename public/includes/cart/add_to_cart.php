@@ -1,31 +1,61 @@
 <?php
 session_start();
+require_once '../../../app/config/database.php';
 
-$id = $_POST['id'] ?? null;
+// POST data
+$menuItemId = $_POST['menu_item_id'] ?? null;
+$quantity   = $_POST['quantity'] ?? 1;
 
-if (!$id) {
-    header('Location: 2_menu.php');
+if (!$menuItemId || !is_numeric($menuItemId)) {
+    header('Location: ../../2_menu.php');
     exit;
 }
 
-// Dummy data (later uit DB)
-$productName = "Shoyu Deluxe";
-$productPrice = 16.50;
+// Product ophalen uit DB
+$stmt = $pdo->prepare("
+    SELECT id, name, price
+    FROM menu_items
+    WHERE id = ? AND is_available = 1
+");
+$stmt->execute([$menuItemId]);
+$product = $stmt->fetch(PDO::FETCH_ASSOC);
 
-// Init cart
+if (!$product) {
+    $_SESSION['flash'] = [
+        'type' => 'error',
+        'message' => 'Dit gerecht bestaat niet.'
+    ];
+    header('Location: ../../2_menu.php');
+    exit;
+}
+
+// Cart initialiseren
 if (!isset($_SESSION['cart'])) {
     $_SESSION['cart'] = [];
 }
 
-// Toevoegen (simpel, later slimmer)
-$_SESSION['cart'][] = [
-    'id' => $id,
-    'name' => $productName,
-    'price' => $productPrice,
-    'quantity' => 1
-];
+// Check of item al in cart zit
+$found = false;
 
-// Flash message
+foreach ($_SESSION['cart'] as &$item) {
+    if ($item['menu_item_id'] == $menuItemId) {
+        $item['quantity'] += $quantity;
+        $found = true;
+        break;
+    }
+}
+
+// Nieuw item toevoegen
+if (!$found) {
+    $_SESSION['cart'][] = [
+        'menu_item_id' => $product['id'],
+        'name' => $product['name'],
+        'price' => $product['price'],
+        'quantity' => $quantity
+    ];
+}
+
+// Flash
 $_SESSION['flash'] = [
     'type' => 'success',
     'message' => 'Toegevoegd aan winkelwagen'
@@ -34,3 +64,4 @@ $_SESSION['flash'] = [
 // Redirect
 header('Location: ../../2_menu.php');
 exit;
+
