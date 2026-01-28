@@ -35,10 +35,10 @@ print(json_str)
 
 # Schrijf naar een .json bestand
 # json.dump() schrijft een Python-object direct naar een bestand.
-with open('data.json', 'w') as bestand:
+with open('./python/data.json', 'w') as bestand:
     json.dump(dict_list, bestand, indent=4)
     # 'indent' maakt het bestand leesbaar
-    # de w is een schrijfmodus waarmee hij de bestand opent
+    # de w is een schrijfmodus waarmee hij de bestand opent (write the file)
 
 # Close connection and cursor
 cursor.close()
