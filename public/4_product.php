@@ -30,6 +30,7 @@ if (!$product) {
 
 <!DOCTYPE html>
 <html lang="nl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -44,126 +45,125 @@ if (!$product) {
 
 <body>
 
-<?php
-include 'includes/navbar.php';
-include './includes/cart/cart.php';
-?>
-
-<?php if (isset($_SESSION['flash'])):
-    $flash = $_SESSION['flash'];
-    unset($_SESSION['flash']);
+    <?php
+    include 'includes/navbar.php';
+    include './includes/cart/cart.php';
     ?>
-    <div class="flash flash--<?= htmlspecialchars($flash['type']) ?>">
-        <?= htmlspecialchars($flash['message']) ?>
-    </div>
-<?php endif; ?>
 
-<section class="product">
+    <?php if (isset($_SESSION['flash'])):
+        $flash = $_SESSION['flash'];
+        unset($_SESSION['flash']);
+    ?>
+        <div class="flash flash--<?= htmlspecialchars($flash['type']) ?>">
+            <?= htmlspecialchars($flash['message']) ?>
+        </div>
+    <?php endif; ?>
 
-    <a href="./2_menu.php" class="product-back">← Terug naar menu</a>
+    <section class="product">
 
-    <!-- Afbeelding -->
-    <div class="product-image">
-        <img
+        <a href="./2_menu.php" class="product-back">← Terug naar menu</a>
+
+        <!-- Afbeelding -->
+        <div class="product-image">
+            <img
                 src="assets/images/ramen/<?= htmlspecialchars($product['image_url']) ?>"
-                alt="<?= htmlspecialchars($product['name']) ?>"
-        >
+                alt="<?= htmlspecialchars($product['name']) ?>">
 
-        <?php
-        $finalPrice = $product['is_deal']
+            <?php
+            $finalPrice = $product['is_deal']
                 ? $product['deal_price']
                 : $product['price'];
-        ?>
-        <span class="product-price">
+            ?>
+            <span class="product-price">
                 €<?= number_format($finalPrice, 2, ',', '.') ?>
-        </span>
-    </div>
-
-    <!-- Content -->
-    <div class="product-content">
-
-        <h1><?= htmlspecialchars($product['name']) ?></h1>
-
-        <div class="product-meta">
-            <span class="badge"><?= htmlspecialchars($product['category_name']) ?></span>
-            <span class="time">⏱ 30–45 min</span>
+            </span>
         </div>
 
-        <p class="product-description">
-            <?= htmlspecialchars($product['description']) ?>
-        </p>
+        <!-- Content -->
+        <div class="product-content">
 
-        <!-- Aantal -->
-        <form method="POST" action="./includes/cart/add_to_cart.php">
-            <input type="hidden" name="menu_item_id" value="<?= $product['id'] ?>">
+            <h1><?= htmlspecialchars($product['name']) ?></h1>
 
-            <div class="quantity">
-                <button type="button" class="qty-btn" id="minus">−</button>
-                <span id="quantity">1</span>
-                <button type="button" class="qty-btn" id="plus">+</button>
+            <div class="product-meta">
+                <span class="badge"><?= htmlspecialchars($product['category_name']) ?></span>
+                <span class="time">⏱ 30–45 min</span>
             </div>
 
-            <input type="hidden" name="quantity" id="quantity-input" value="1">
+            <p class="product-description">
+                <?= htmlspecialchars($product['description']) ?>
+            </p>
 
-            <!-- Totaal -->
-            <div class="total">
-                <span>Totaal</span>
-                <?php
-                $finalPrice = $product['is_deal']
+            <!-- Aantal -->
+            <form method="POST" action="./includes/cart/add_to_cart.php">
+                <input type="hidden" name="menu_item_id" value="<?= $product['id'] ?>">
+
+                <div class="quantity">
+                    <button type="button" class="qty-btn" id="minus">−</button>
+                    <span id="quantity">1</span>
+                    <button type="button" class="qty-btn" id="plus">+</button>
+                </div>
+
+                <input type="hidden" name="quantity" id="quantity-input" value="1">
+
+                <!-- Totaal -->
+                <div class="total">
+                    <span>Totaal</span>
+                    <?php
+                    $finalPrice = $product['is_deal']
                         ? $product['deal_price']
                         : $product['price'];
-                ?>
-                <span id="total-price">
+                    ?>
+                    <span id="total-price">
                         €<?= number_format($finalPrice, 2, ',', '.') ?>
                     </span>
-            </div>
+                </div>
 
-            <input type="hidden" name="price" value="<?= $finalPrice ?>">
+                <input type="hidden" name="price" value="<?= $finalPrice ?>">
 
 
-            <!-- Add to cart -->
-            <button type="submit" class="add-to-cart">
-                🛒 Toevoegen aan winkelwagen
-            </button>
-        </form>
+                <!-- Add to cart -->
+                <button type="submit" class="add-to-cart">
+                    🛒 Toevoegen aan winkelwagen
+                </button>
+            </form>
 
-    </div>
+        </div>
 
-</section>
+    </section>
 
-<?php include 'includes/footer.php'; ?>
+    <?php include 'includes/footer.php'; ?>
 
-<script>
-    let quantity = 1;
-    const price = <?= $product['price'] ?>;
+    <script>
+        let quantity = 1;
+        const price = <?= $finalPrice ?>;
 
-    const quantityEl = document.getElementById('quantity');
-    const quantityInput = document.getElementById('quantity-input');
-    const totalPriceEl = document.getElementById('total-price');
+        const quantityEl = document.getElementById('quantity');
+        const quantityInput = document.getElementById('quantity-input');
+        const totalPriceEl = document.getElementById('total-price');
 
-    document.getElementById('plus').onclick = () => {
-        quantity++;
-        update();
-    };
-
-    document.getElementById('minus').onclick = () => {
-        if (quantity > 1) {
-            quantity--;
+        document.getElementById('plus').onclick = () => {
+            quantity++;
             update();
+        };
+
+        document.getElementById('minus').onclick = () => {
+            if (quantity > 1) {
+                quantity--;
+                update();
+            }
+        };
+
+        function update() {
+            quantityEl.textContent = quantity;
+            quantityInput.value = quantity;
+            totalPriceEl.textContent =
+                '€' + (price * quantity).toFixed(2).replace('.', ',');
         }
-    };
+    </script>
 
-    function update() {
-        quantityEl.textContent = quantity;
-        quantityInput.value = quantity;
-        totalPriceEl.textContent =
-            '€' + (price * quantity).toFixed(2).replace('.', ',');
-    }
-</script>
-
-<script src="./assets/js/swipe_hint.js"></script>
-<script src="./assets/js/cart.js"></script>
-<script src="./assets/js/animations.js"></script>
+    <script src="./assets/js/cart.js"></script>
+    <script src="./assets/js/animations.js"></script>
 
 </body>
+
 </html>
