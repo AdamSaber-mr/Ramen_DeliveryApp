@@ -121,3 +121,17 @@
 .remove-btn:hover {
   color: #e11d48;
 }
+
+@media (min-width: 1024px) {
+  .cart-overlay {
+    justify-content: flex-end;
+    align-items: stretch;
+  }
+
+  .cart {
+    width: 420px;
+    height: 100%;
+    max-height: none;
+    border-radius: 0;
+  }
+}
