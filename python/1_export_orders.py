@@ -19,18 +19,26 @@ cursor.execute(
     "SELECT menu_item_id, quantity FROM order_items"
 )
 
-# Fetch one result
+# Resultaten ophalen
 row = cursor.fetchall()
+
+dict_list = []
 # door de rows loopen en unpacking te tuples in row
 for x, y in row:
-    # de waardes van de tuples in een dictionary stopen
-    dictionary = dict(menu_item_id=x, quantity=y)
-    # De dictionary in een list veranderen
-    list_from_dict = list(dictionary.items())
-    # Die list veranderen naar json
-    # Zodat we hem later kunnen gebruiken voor analyse
-    json_str = json.dumps(list_from_dict)
-    print(json_str)
+    # de waardes van de tuples in een dictionary list stopen
+    dict_list.append(dict(menu_item_id=x, quantity=y))
+
+
+# json.dumps() converteert een object eerst naar een JSON-string
+json_str = json.dumps(dict_list)
+print(json_str)
+
+# Schrijf naar een .json bestand
+# json.dump() schrijft een Python-object direct naar een bestand.
+with open('data.json', 'w') as bestand:
+    json.dump(dict_list, bestand, indent=4)
+    # 'indent' maakt het bestand leesbaar
+    # de w is een schrijfmodus waarmee hij de bestand opent
 
 # Close connection and cursor
 cursor.close()
