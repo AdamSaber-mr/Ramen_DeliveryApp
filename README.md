@@ -135,27 +135,7 @@ Werkt goed op:
 
 
 🗂️ Projectstructuur (globaal)
-/public
-  ├── 1_index.php
-  ├── 2_menu.php
-  ├── 3_category.php
-  ├── 4_product.php
-  ├── 5_checkout.php
-  ├── 6_login.php
-  ├── 7_register.php
-  ├── 9_place_order.php
-  ├── 10_thankyou.php
-  ├── /includes
-  ├── /assets
-/app
-  ├── /config
-  ├── /models
-  ├── /controllers
-/python
-  ├── export_orders.py
-  ├── analyse_orders.py
-  ├── data.json
-  ├── populair.json
+<img width="277" height="614" alt="Scherm­afbeelding 2026-01-29 om 09 13 25" src="https://github.com/user-attachments/assets/c19ded68-e132-46e9-b690-c588af4b1ba6" />
 
 
 
