@@ -1,146 +1,181 @@
-🍜 Yume Ramen – Delivery App
-📌 Project Description
+🍜 Yume Ramen – Delivery Web App
+Yume Ramen is een full-stack webapplicatie voor het bestellen van authentieke Japanse ramen.
+De applicatie is mobile-first gebouwd, volledig responsive gemaakt voor tablet en desktop, en bevat een backend met database, authenticatie én een Python-analyse voor populaire gerechten.
 
-Yume Ramen is a mobile-focused delivery web app made for a Japanese ramen restaurant.
-The goal of this project is to create a visually attractive and easy-to-use delivery app where users can quickly browse the menu, select ramen dishes, and place an order for home delivery.
 
-The app is inspired by Japanese culture and focuses on a smooth user experience, especially on mobile devices.
 
-This project is made as a school assignment.
+🔗 Live demo (schoolserver):
+👉 https://102896.stu.sd-lab.nl/schooljaar2/1_beroeps/Ramen_DeliveryApp/public/1_index.php
 
-🎯 Project Goals
 
-Create a user-friendly ramen delivery app
 
-Apply Japanese visual style and atmosphere
+📸 Screenshots
 
-Allow users to browse the menu without an account
+(Hier kun je zelf screenshots toevoegen van: homepage, menu, productpagina, checkout, thankyou page)
 
-Require users to log in or register before placing an order
 
-Automatically fill in user details during checkout
 
-Use a clean and well-structured database
+🚀 Functionaliteiten:
+👤 Gebruikers
+Registreren & inloggen
+Sessies voor ingelogde gebruikers
+Alleen ingelogde gebruikers kunnen afrekenen
 
-👥 Target Audience
 
-People who like Japanese ramen
 
-Users who often order food online
+🍜 Menu & Producten
+Overzicht van alle ramen uit de database
+Categoriepagina’s (Shoyu, Miso, Tonkotsu, Spicy, Vegetarisch)
+Product detailpagina met:
+  beschrijving
+  prijs / aanbiedingsprijs
+  hoeveelheid selecteren
 
-Young and old users
 
-Both new and existing ramen customers
 
-🛠️ Technologies Used
-Frontend
+🛒 Winkelmand
+Items toevoegen / verwijderen
+Dynamische berekening van subtotaal en totaal
+Winkelmand opgeslagen in PHP session
 
-HTML
 
-CSS
 
-JavaScript
+💳 Checkout & Bestellingen
+Beveiligde checkout (login vereist)
+Adres invoeren
+Bestelling opslaan in database:
+  orders
+  order_items
+  addresses
+  Bedankt-pagina met echte bestelgegevens
 
-Backend
 
-PHP
 
-MySQL (phpMyAdmin)
+🔥 Aanbiedingen
+Gerechten met is_deal = 1
+Oude prijs + nieuwe prijs zichtbaar
+Werkt door in:
+  menu
+  categorie
+  productpagina
+  homepage
 
-Extra
 
-Python (for data analysis and learning purposes)
 
-🗄️ Database Structure
+⭐ Populair Nu (Python)
+Python script analyseert bestellingen
+Berekent welke gerechten het meest besteld zijn
+Resultaat wordt opgeslagen in populair.json
+Homepage leest deze data dynamisch in
 
-The database is designed around the user and the ordering process.
 
-Main tables:
 
-users – stores user and login data
+🧠 Python Analyse (AI/ML voorbereiding)
+De app bevat een Python-gedeelte dat data analyseert uit de database:
 
-addresses – stores delivery addresses
+export_orders.py
+  Haalt data op uit order_items
+  Exporteert menu_item_id + quantity naar JSON
 
-categories – ramen categories
+analyse_orders.py
+  Leest JSON data
+  Telt hoeveel keer elk gerecht is besteld
+  Sorteert resultaten
+  Slaat top 3 populairste gerechten op in populair.json
+➡️ Deze opzet is bewust zo gemaakt als basis voor latere AI / ML uitbreiding.
 
-menu_items – ramen dishes
 
-orders – placed orders
 
-order_items – items inside an order
+🧱 Gebruikte Technologieën
+Front-end
+HTML5
+CSS3 (mobile-first, responsive)
+JavaScript (interacties, cart)
+UX-gericht design
 
-Users must be logged in to place an order.
-Orders are linked to users and addresses to allow automatic checkout filling.
+Back-end
+PHP 8
+PDO (prepared statements)
+PHP Sessions
+Database
+MySQL
 
-📂 Project Folder Structure
-yume-ramen/
-├── public/
-│ ├── index.php
-│ ├── menu.php
-│ ├── product.php
-│ ├── cart.php
-│ ├── checkout.php
-│ ├── login.php
-│ └── register.php
-│
-├── app/
-│ ├── config/
-│ ├── controllers/
-│ ├── models/
-│ └── helpers/
-│
-├── python/
-│ └── analysis scripts
-│
-└── README.md
+Relaties:
+  users
+  menu_items
+  categories
+  orders
+  order_items
+  addresses
 
-All frontend files are inside the public folder.
-Backend logic and database connections are stored outside the public folder for better security and structure.
+Python:
+  mysql-connector-python
+  JSON data analyse
+  Data verwerking & sorting
 
-🔐 Authentication
 
-Users can browse the menu without an account
 
-Users must log in or register before placing an order
+📱 Responsive Design
+Mobile-first ontwikkeld
+Tablet layout aangepast (grid & scroll)
 
-Passwords are securely stored using hashing
+Desktop layout:
+  gecentreerde content
+  betere leesbaarheid
+  verbeterde UX
 
-User data is reused during checkout to improve the user experience
+Werkt goed op:
+  telefoon
+  tablet
+  laptop / desktop
 
-🚫 Project Limitations
 
-The following features are not included in this project:
 
-Online payment systems (iDeal, PayPal, etc.)
+🗂️ Projectstructuur (globaal)
+/public
+  ├── 1_index.php
+  ├── 2_menu.php
+  ├── 3_category.php
+  ├── 4_product.php
+  ├── 5_checkout.php
+  ├── 6_login.php
+  ├── 7_register.php
+  ├── 9_place_order.php
+  ├── 10_thankyou.php
+  ├── /includes
+  ├── /assets
+/app
+  ├── /config
+  ├── /models
+  ├── /controllers
+/python
+  ├── export_orders.py
+  ├── analyse_orders.py
+  ├── data.json
+  ├── populair.json
 
-Discount or coupon systems
 
-Live delivery tracking
 
-Reviews or chat systems
+🎓 Wat ik heb geleerd
+Full-stack werken (front-end ↔ back-end ↔ database)
+PHP sessions en authenticatie
+Database relaties & transacties
+Data exporteren en analyseren met Python
+JSON gebruiken als brug tussen Python en PHP
+UX verbeteren voor meerdere schermformaten
+Werken zoals in een echte productie-app
 
-Multi-language support
 
-These limitations follow the project requirements.
 
-🐍 Python Usage
+🔮 Mogelijke uitbreidingen
+Betalingsmethode (iDEAL / Stripe)
+Admin dashboard
+AI aanbevelingen (ML model)
+Ordergeschiedenis per gebruiker
+Reviews / ratings
 
-Python is used as an extra learning component.
-It can be used for:
-
-Order analysis
-
-Exporting order data
-
-Simple statistics and insights
-
-Python is not part of the main ordering flow.
-
-👨‍🎓 Author
-
-This project is created by a 17-year-old Software Development student as part of a school assignment.
-The main focus of this project is learning, structure, and clean code.
-
-📄 License
-
-This project is for educational purposes only.
+👨‍🍳 Auteur
+Naam: Adam Saber
+Opleiding: Software Development
+Schooljaar: Jaar 2
+Project: Beroepsproduct – Webapplicatie
