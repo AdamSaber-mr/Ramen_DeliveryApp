@@ -133,8 +133,6 @@ Werkt goed op:
   laptop / desktop
 
 
-
-🗂️ Projectstructuur (globaal)
 <img width="277" height="614" alt="Scherm­afbeelding 2026-01-29 om 09 13 25" src="https://github.com/user-attachments/assets/c19ded68-e132-46e9-b690-c588af4b1ba6" />
 
 
