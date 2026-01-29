@@ -11,7 +11,10 @@ De applicatie is mobile-first gebouwd, volledig responsive gemaakt voor tablet e
 
 📸 Screenshots
 
-(Hier kun je zelf screenshots toevoegen van: homepage, menu, productpagina, checkout, thankyou page)
+<img width="408" height="1570" alt="image 79" src="https://github.com/user-attachments/assets/c0c70d77-5bc8-4943-a5f1-bc102887d1e9" />
+
+<img width="429" height="738" alt="Scherm­afbeelding 2026-01-29 om 09 11 27" src="https://github.com/user-attachments/assets/bb9c6ee1-7a40-4e19-b30c-c13145668ad5" />
+
 
 
 
