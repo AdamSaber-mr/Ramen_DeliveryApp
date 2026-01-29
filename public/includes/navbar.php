@@ -15,21 +15,21 @@
         <div class="flex items-center gap-3">
 
           <!-- Login / Register -->
-            <?php if (isset($_SESSION['user_id'])): ?>
+          <?php if (isset($_SESSION['user_id'])): ?>
 
-                <a href="8_logout.php"
-                   class="flex items-center gap-1 rounded-full bg-[#7a2a3a] px-3 py-1.5 text-xs text-white hover:bg-[#8f3246] transition">
-                    <span>👤 Uitloggen</span>
-                </a>
+            <a href="8_logout.php"
+              class="flex items-center gap-1 rounded-full bg-[#7a2a3a] px-3 py-1.5 text-xs text-white hover:bg-[#8f3246] transition">
+              <span>Uitloggen</span>
+            </a>
 
-            <?php else: ?>
+          <?php else: ?>
 
-                <a href="6_login.php"
-                   class="flex items-center gap-1 rounded-full bg-[#7a2a3a] px-3 py-1.5 text-xs text-white hover:bg-[#8f3246] transition">
-                    <span>👤 Inloggen</span>
-                </a>
+            <a href="6_login.php"
+              class="flex items-center gap-1 rounded-full bg-[#7a2a3a] px-3 py-1.5 text-xs text-white hover:bg-[#8f3246] transition">
+              <span>Inloggen</span>
+            </a>
 
-            <?php endif; ?>
+          <?php endif; ?>
 
           <!-- Winkelwagen -->
           <button onclick="openCart()" class="cart-btn">
