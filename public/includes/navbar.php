@@ -2,9 +2,11 @@
       <nav class="flex items-center justify-between px-4 py-3">
         <!-- Logo -->
         <div class="flex items-center gap-2 text-white font-semibold">
-          <img src="assets/images/global/logo.png"
-            alt="Yume Ramen restaurant"
-            class="w-10">
+          <a href="../1_index.php">
+            <img src="assets/images/global/logo.png"
+              alt="Yume Ramen restaurant"
+              class="w-10">
+          </a>
           <div class="flex items-center flex-col">
             <span class="text-sm">Yume Ramen</span>
             <p class="text-[#c8c067] font-light text-xs">夢ラーメン</p>
