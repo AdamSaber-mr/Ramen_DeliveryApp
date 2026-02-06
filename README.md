@@ -1,159 +1,128 @@
-🍜 Yume Ramen – Delivery Web App
-Yume Ramen is een full-stack webapplicatie voor het bestellen van authentieke Japanse ramen.
-De applicatie is mobile-first gebouwd, volledig responsive gemaakt voor tablet en desktop, en bevat een backend met database, authenticatie én een Python-analyse voor populaire gerechten.
 
+# 🍜 Yume Ramen – Full-Stack Food Delivery Web Application
 
+---
 
-🔗 Live demo (schoolserver):
-👉 https://102896.stu.sd-lab.nl/schooljaar2/1_beroeps/Ramen_DeliveryApp/public/1_index.php
+## 📌 Project Overview
 
+**Yume Ramen** is a full-stack food delivery web application that allows users to browse, order, and checkout authentic Japanese ramen dishes.  
+The project is designed and built as a realistic, production-style application with a strong focus on **usability, scalability, and clean architecture**.
 
+The application is developed using a **mobile-first approach**, fully responsive for tablet and desktop, and simulates a real-world food delivery platform.
 
-📸 Screenshots
+Although created as a school project, Yume Ramen is built at **portfolio and industry-oriented level**.
 
-<img width="408" height="1570" alt="image 79" src="https://github.com/user-attachments/assets/c0c70d77-5bc8-4943-a5f1-bc102887d1e9" />
+🌐 *Live website:*  
+https://102896.stu.sd-lab.nl/schooljaar2/1_beroeps/Ramen_DeliveryApp/public/1_index.php
 
+---
 
+## 🚀 Key Features
 
-🚀 Functionaliteiten:
-👤 Gebruikers
-Registreren & inloggen
-Sessies voor ingelogde gebruikers
-Alleen ingelogde gebruikers kunnen afrekenen
+- User registration and authentication  
+- Dynamic menu fully loaded from the database  
+- Category-based browsing (Shoyu, Miso, Tonkotsu, Spicy, Vegetarian)  
+- Product detail pages with pricing and descriptions  
+- Support for discounted products (regular & sale prices)  
+- Shopping cart using PHP sessions  
+- Checkout process with automatic price calculation  
+- Order storage with a relational MySQL database  
+- Data analysis using Python (popular products)  
+- Fully responsive UI (mobile, tablet, desktop)  
 
+---
 
+## 🧠 Data Analysis & Python Integration
 
-🍜 Menu & Producten
-Overzicht van alle ramen uit de database
-Categoriepagina’s (Shoyu, Miso, Tonkotsu, Spicy, Vegetarisch)
-Product detailpagina met:
-  beschrijving
-  prijs / aanbiedingsprijs
-  hoeveelheid selecteren
+One of the most distinctive aspects of this project is the integration of **Python-based data analysis**.
 
+### 🔄 Workflow
 
+1. Order data is exported from the MySQL database into JSON format  
+2. A Python script processes the data:
+   - Counts how often each product is ordered  
+   - Sorts products by popularity  
+   - Selects the top 3 most ordered dishes  
+3. The results are stored in a JSON file  
+4. The PHP frontend reads this file  
+5. The top 3 popular dishes are displayed dynamically on the homepage  
 
-🛒 Winkelmand
-Items toevoegen / verwijderen
-Dynamische berekening van subtotaal en totaal
-Winkelmand opgeslagen in PHP session
+This setup is intentionally designed as a foundation for **future AI or machine learning features**.
 
+---
 
+## 🧱 Technology Stack
 
-💳 Checkout & Bestellingen
-Beveiligde checkout (login vereist)
-Adres invoeren
-Bestelling opslaan in database:
-  orders
-  order_items
-  addresses
-  Bedankt-pagina met echte bestelgegevens
+### 🎨 Frontend
+- HTML5  
+- CSS3 (mobile-first & responsive design)  
+- JavaScript  
 
+### ⚙️ Backend
+- PHP  
+- PHP Sessions (shopping cart)  
+- Server-side validation  
 
+### 🗄️ Database
+- MySQL  
+- Relational structure including:
+  - Users  
+  - Addresses  
+  - Orders  
+  - Order items  
+  - Products & categories  
 
-🔥 Aanbiedingen
-Gerechten met is_deal = 1
-Oude prijs + nieuwe prijs zichtbaar
-Werkt door in:
-  menu
-  categorie
-  productpagina
-  homepage
+### 📊 Data Processing
+- Python  
+- JSON export and analysis  
 
+---
 
+## 🎯 UX & Design Approach
 
-⭐ Populair Nu (Python)
-Python script analyseert bestellingen
-Berekent welke gerechten het meest besteld zijn
-Resultaat wordt opgeslagen in populair.json
-Homepage leest deze data dynamisch in
+- 📱 Mobile-first design strategy  
+- 📐 Optimized layouts for tablet and desktop  
+- 🎨 Calm, Japanese-inspired color palette  
+- 🧭 Clear navigation and visual hierarchy  
+- 👉 Strong call-to-actions  
 
+The user interface is inspired by **Japanese aesthetics** and modern food delivery applications.
 
+---
 
-🧠 Python Analyse (AI/ML voorbereiding)
-De app bevat een Python-gedeelte dat data analyseert uit de database:
+## 📂 Project Structure (Overview)
 
-export_orders.py
-  Haalt data op uit order_items
-  Exporteert menu_item_id + quantity naar JSON
+```text
+/assets
+/css
+/js
+/php
+/database
+/python
+/data
+```
+---
 
-analyse_orders.py
-  Leest JSON data
-  Telt hoeveel keer elk gerecht is besteld
-  Sorteert resultaten
-  Slaat top 3 populairste gerechten op in populair.json
-➡️ Deze opzet is bewust zo gemaakt als basis voor latere AI / ML uitbreiding.
+🎓 Learning Outcomes
+- Through this project, I gained hands-on experience with:
+- Building a complete full-stack web application
+- Designing relational databases
+- Backend development with PHP
+- Frontend development with a UX-focused approach
+- Session-based state management
+- Data analysis using Python
+- Integrating multiple technologies into one application
 
+Yume Ramen demonstrates how frontend, backend, database design, and data processing work together in a scalable web application.
 
+---
 
-🧱 Gebruikte Technologieën
-Front-end
-HTML5
-CSS3 (mobile-first, responsive)
-JavaScript (interacties, cart)
-UX-gericht design
+👨‍💻 Author
 
-Back-end
-PHP 8
-PDO (prepared statements)
-PHP Sessions
-Database
-MySQL
+Adam
+Software Development Student
+Grafisch Lyceum Rotterdam
+Age: 17
 
-Relaties:
-  users
-  menu_items
-  categories
-  orders
-  order_items
-  addresses
+---
 
-Python:
-  mysql-connector-python
-  JSON data analyse
-  Data verwerking & sorting
-
-
-
-📱 Responsive Design
-Mobile-first ontwikkeld
-Tablet layout aangepast (grid & scroll)
-
-Desktop layout:
-  gecentreerde content
-  betere leesbaarheid
-  verbeterde UX
-
-Werkt goed op:
-  telefoon
-  tablet
-  laptop / desktop
-
-
-<img width="277" height="614" alt="Scherm­afbeelding 2026-01-29 om 09 13 25" src="https://github.com/user-attachments/assets/c19ded68-e132-46e9-b690-c588af4b1ba6" />
-
-
-
-🎓 Wat ik heb geleerd
-Full-stack werken (front-end ↔ back-end ↔ database)
-PHP sessions en authenticatie
-Database relaties & transacties
-Data exporteren en analyseren met Python
-JSON gebruiken als brug tussen Python en PHP
-UX verbeteren voor meerdere schermformaten
-Werken zoals in een echte productie-app
-
-
-
-🔮 Mogelijke uitbreidingen
-Betalingsmethode (iDEAL / Stripe)
-Admin dashboard
-AI aanbevelingen (ML model)
-Ordergeschiedenis per gebruiker
-Reviews / ratings
-
-👨‍🍳 Auteur
-Naam: Adam Saber
-Opleiding: Software Development
-Schooljaar: Jaar 2
-Project: Beroepsproduct – Webapplicatie
